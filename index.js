@@ -1,8 +1,8 @@
 const express = require("express");
 const app = express();
 require("dotenv").config();
-const cors = require("cors");
 const initiateStkPush = require("./routes/stkpush");
+const listenCallback = require("./routes/callback");
 const port = process.env.PORT;
 
 app.use((req, res, next) => {
@@ -13,5 +13,6 @@ app.use((req, res, next) => {
 });
 app.use(express.json());
 app.use("/stkpush", initiateStkPush);
+app.use("/callback", listenCallback);
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
