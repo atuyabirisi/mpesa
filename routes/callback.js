@@ -4,7 +4,7 @@ const router = express.Router();
 router.post("/", (req, res) => {
   try {
     callBackData = req.body;
-    return res.sendStatus(200).send(callBackData);
+    return res.send(callBackData);
   } catch (err) {
     console.log(err);
   }
