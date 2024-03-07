@@ -2,8 +2,12 @@ const express = require("express");
 const router = express.Router();
 
 router.post("/", (req, res) => {
-  const response = req.body;
-  console.log(response);
+  try {
+    callBackData = req.body;
+    return res.sendStatus(200).send(callBackData);
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 module.exports = router;
