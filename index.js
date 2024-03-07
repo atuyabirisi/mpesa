@@ -5,7 +5,11 @@ const cors = require("cors");
 const initiateStkPush = require("./routes/stkpush");
 const port = process.env.PORT;
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://vercel.com/atuyas-projects/mpesa-client",
+  })
+);
 app.use(express.json());
 app.use("/stkpush", initiateStkPush);
 
