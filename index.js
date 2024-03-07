@@ -14,8 +14,4 @@ app.use((req, res, next) => {
 app.use(express.json());
 app.use("/stkpush", initiateStkPush);
 
-app.get("/", (req, res) => {
-  res.send("We Are Inside");
-});
-
 app.listen(port, () => console.log(`Listening on port ${port}`));
