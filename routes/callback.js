@@ -2,7 +2,8 @@ const express = require("express");
 const router = express.Router();
 
 router.post("/", (req, res) => {
-  res.send(req.body);
+  const callBackData = req.body;
+  console.log(callBackData);
 });
 
 module.exports = router;
