@@ -3,6 +3,7 @@ const app = express();
 require("dotenv").config();
 const cors = require("cors");
 const initiateStkPush = require("./routes/stkpush");
+const transaction = require("./routes/callback");
 const port = process.env.PORT;
 
 app.use((req, res, next) => {
@@ -13,16 +14,10 @@ app.use((req, res, next) => {
 });
 app.use(express.json());
 app.use("/stkpush", initiateStkPush);
+app.use("/callback", transaction);
 
 app.get("/", (req, res) => {
   res.send("We are inside");
-});
-
-app.post("/callback", (req, res) => {
-  const callBackData = req.body.Body.stkCallback;
-  if (callBackData) {
-    return res.send("received transaction status");
-  }
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
