@@ -20,8 +20,9 @@ app.get("/", (req, res) => {
 
 app.post("/callback", (req, res) => {
   const callBackData = req.body.Body.stkCallback;
-  console.log("sucessful", callBackData);
-  console.log("atuya");
+  if (callBackData) {
+    return res.send("received transaction status");
+  }
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
