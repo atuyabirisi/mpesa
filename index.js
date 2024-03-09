@@ -14,10 +14,6 @@ app.use((req, res, next) => {
 });
 app.use(express.json());
 app.use("/stkpush", initiateStkPush);
-app.use("/callback", transaction);
-
-app.get("/", (req, res) => {
-  res.send("We are inside");
-});
+app.use("/stk_confirm", transaction);
 
 app.listen(port, () => console.log(`Listening on port ${port}`));

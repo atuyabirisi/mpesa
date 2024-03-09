@@ -31,7 +31,8 @@ router.post("/", generateTokenMiddleWare, async (req, res) => {
         PartyA: `254${phone}`,
         PartyB: shortCode,
         PhoneNumber: `254${phone}`,
-        CallBackURL: "https://mpesa-transx-e745e2d61633.herokuapp.com/callback",
+        CallBackURL:
+          "https://mpesa-transx-e745e2d61633.herokuapp.com/stk_confirm",
         AccountReference: `254${phone}`,
         TransactionDesc: "Test",
       },
@@ -48,7 +49,6 @@ router.post("/", generateTokenMiddleWare, async (req, res) => {
       console.log(err);
       res.status(400).send(err);
     });
-  res.send(response);
 });
 
 module.exports = router;
